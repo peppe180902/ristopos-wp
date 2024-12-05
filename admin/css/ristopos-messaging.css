@@ -1,0 +1,46 @@
+.ristopos-messaging {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.ristopos-new-message {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.ristopos-new-message select,
+.ristopos-new-message textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.ristopos-new-message textarea {
+    height: 100px;
+}
+
+.ristopos-message-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ristopos-message-list li {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.ristopos-message-list li.unread {
+    background: #e6f3ff;
+    font-weight: bold;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: #666;
+    float: right;
+}
