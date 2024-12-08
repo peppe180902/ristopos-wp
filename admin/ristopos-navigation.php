@@ -5,7 +5,7 @@ function ristopos_generate_navigation() {
     ob_start();
     ?>
     <style>
-    #ristopos-nav-wrapper {
+    /* #ristopos-nav-wrapper {
         background: #23282d;
         padding: 10px;
         position: relative;
@@ -67,7 +67,7 @@ function ristopos_generate_navigation() {
         #ristopos-sidebar li a {
             padding: 10px 15px;
         }
-    }
+    } */
     </style>
 
     <div id="ristopos-nav-wrapper">
@@ -89,35 +89,35 @@ function ristopos_generate_navigation() {
     </div>
 
     <script>
-    jQuery(document).ready(function($) {
-        console.log('RistoPOS navigation script loaded');
+    // jQuery(document).ready(function($) {
+    //     console.log('RistoPOS navigation script loaded');
 
-        var $menuToggle = $('#ristopos-menu-toggle');
-        var $sidebar = $('#ristopos-sidebar');
-        var $body = $('body');
+    //     var $menuToggle = $('#ristopos-menu-toggle');
+    //     var $sidebar = $('#ristopos-sidebar');
+    //     var $body = $('body');
 
-        console.log('Menu toggle button:', $menuToggle.length);
-        console.log('Sidebar:', $sidebar.length);
+    //     console.log('Menu toggle button:', $menuToggle.length);
+    //     console.log('Sidebar:', $sidebar.length);
 
-        $menuToggle.on('click', function(e) {
-            e.preventDefault();
-            $sidebar.toggleClass('open');
-            $body.toggleClass('sidebar-open');
-            console.log('Sidebar toggled');
-        });
+    //     $menuToggle.on('click', function(e) {
+    //         e.preventDefault();
+    //         $sidebar.toggleClass('open');
+    //         $body.toggleClass('sidebar-open');
+    //         console.log('Sidebar toggled');
+    //     });
 
-        $(document).on('click', function(event) {
-            if (!$(event.target).closest('#ristopos-nav-wrapper, #ristopos-sidebar').length) {
-                $sidebar.removeClass('open');
-                $body.removeClass('sidebar-open');
-            }
-        });
+    //     $(document).on('click', function(event) {
+    //         if (!$(event.target).closest('#ristopos-nav-wrapper, #ristopos-sidebar').length) {
+    //             $sidebar.removeClass('open');
+    //             $body.removeClass('sidebar-open');
+    //         }
+    //     });
 
-        $sidebar.on('click', 'a', function() {
-            $sidebar.removeClass('open');
-            $body.removeClass('sidebar-open');
-        });
-    });
+    //     $sidebar.on('click', 'a', function() {
+    //         $sidebar.removeClass('open');
+    //         $body.removeClass('sidebar-open');
+    //     });
+    // });
     </script>
     <?php
     return ob_get_clean();
@@ -129,4 +129,4 @@ function ristopos_add_navigation() {
 }
 
 // Aggiungi questa funzione all'inizio di ogni pagina del plugin
-add_action('ristopos_before_page_content', 'ristopos_add_navigation');
+// add_action('ristopos_before_page_content', 'ristopos_add_navigation');

@@ -155,7 +155,6 @@ function ristopos_tables_styles() {
         margin: 10px 20px 0 20px;
     }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -199,9 +198,9 @@ function ristopos_tables_styles() {
         margin-top: 10px;
     }
          @media screen and (max-width: 600px) {
-            #wpbody {
-                padding-top: 0px;
-            }
+            // #wpbody {
+            //     padding-top: 0px;
+            // }
         }
     </style>
     ';

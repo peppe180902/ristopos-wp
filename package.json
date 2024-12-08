@@ -1,6 +1,6 @@
 {
   "name": "ristopos-wp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Restaurant management makes easier",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "^30.6.0"
+    "@wordpress/scripts": "^30.6.0",
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^3.4.16"
+  },
+  "dependencies": {
+    "@wordpress/i18n": "^5.13.0",
+    "postcss": "^8.4.49",
+    "react-router-dom": "^7.0.2"
   }
 }

@@ -300,7 +300,6 @@ function ristopos_products_styles() {
 
 
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;

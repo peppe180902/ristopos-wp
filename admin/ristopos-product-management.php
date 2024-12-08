@@ -98,7 +98,6 @@ function ristopos_product_management_styles() {
         gap: 5px;
     }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;

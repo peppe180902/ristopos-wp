@@ -9,25 +9,6 @@ function ristopos_wc_functions_available() {
 }
 
 // Funzione principale per la dashboard analitica
-function ristopos_analytics_dashboard() {
-    do_action('ristopos_before_page_content');
-
-    if (!ristopos_wc_functions_available()) {
-        echo '<div class="wrap"><h1>Dashboard Analitica RistoPOS</h1>';
-        echo '<div class="error"><p>WooCommerce non è completamente caricato. La Dashboard Analitica richiede WooCommerce per funzionare correttamente.</p></div>';
-        echo '</div>';
-        return;
-    }
-
-    echo '<div class="wrap">';
-    echo '<h1>Dashboard Analitica RistoPOS</h1>';
-    
-    
-    ristopos_display_main_stats();
-    ristopos_display_charts();
-    
-    echo '</div>';
-}
 
 function ristopos_analytics_styles() {
     echo '
@@ -40,7 +21,6 @@ function ristopos_analytics_styles() {
         margin: 10px 20px 0 20px;
     }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;

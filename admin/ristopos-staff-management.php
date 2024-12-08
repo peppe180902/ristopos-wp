@@ -3,33 +3,6 @@ if (!defined('ABSPATH')) {
     exit; // Uscita se accesso diretto
 }
 
-function ristopos_staff_management() {
-    if (!current_user_can('manage_staff')) {
-        wp_die(__('Non hai il permesso di accedere a questa pagina.', 'ristopos'));
-    }
-    
-    do_action('ristopos_before_page_content');
-
-    echo '<div class="wrap">';
-    echo '<h1>Gestione del Personale RistoPOS</h1>';
-    
-    // Gestione delle azioni
-    if (isset($_POST['ristopos_add_staff'])) {
-        ristopos_process_add_staff();
-    } elseif (isset($_POST['ristopos_edit_staff'])) {
-        ristopos_process_edit_staff();
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'delete') {
-        ristopos_process_delete_staff();
-    }
-
-    // Visualizza il form di aggiunta/modifica staff
-    ristopos_display_staff_form();
-    
-    // Visualizza la lista del personale
-    ristopos_display_staff_list();
-    
-    echo '</div>';
-}
 
 function ristopos_process_add_staff() {
     if (!current_user_can('ristopos_access')) {
@@ -224,7 +197,6 @@ function ristopos_staff_styles() {
         margin: 10px 20px 0 20px;
     }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;

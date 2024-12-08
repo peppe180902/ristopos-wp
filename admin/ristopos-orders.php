@@ -68,7 +68,6 @@ function ristopos_orders_styles() {
             padding: 10px 20px 0px 20px;
         }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -84,9 +83,9 @@ function ristopos_orders_styles() {
             transition: background-color 0.3s;
         }
         @media screen and (max-width: 600px) {
-            #wpbody {
-                padding-top: 0px;
-            }
+            // #wpbody {
+            //     padding-top: 0px;
+            // }
         }
         /* Stile per la colonna delle note */
         .wp-list-table td:nth-child(5) {
