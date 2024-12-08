@@ -182,21 +182,21 @@ class Menu
 
     public function ristopos_products_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'admin/ristopos-products.php';
+        require_once RISTOPOS_TEMPLATE_PATH . '/admin/products.php';
     }
 
     public function ristopos_orders_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'admin/ristopos-orders.php';
+        require_once RISTOPOS_TEMPLATE_PATH . '/admin/orders.php';
     }
 
     public function ristopos_tables_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'admin/ristopos-tables.php';
+        require_once RISTOPOS_TEMPLATE_PATH . '/admin/tables.php';
     }
 
     public function ristopos_product_management_page()
     {
-        require_once plugin_dir_path(__FILE__) . 'admin/ristopos-product-management.php';
+        require_once RISTOPOS_TEMPLATE_PATH . '/admin/product-management.php';
     }
 }

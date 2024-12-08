@@ -1,5 +1,6 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
+import { Button } from '@wordpress/components';
 
 const HomePage: React.FC = () => {
     return (
@@ -17,32 +18,32 @@ const HomePage: React.FC = () => {
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-cart mr-2"></span> {__('Order Management', 'ristopos')}</h3>
                             <p>{__('Easily manage ongoing orders and access the complete history. Optimize the workflow from the kitchen to the dining room.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-orders" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('Manage Orders', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-orders" isPrimary className="mt-4 inline-block">{__('Manage Orders', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-grid-view mr-2"></span> {__('Table Management', 'ristopos')}</h3>
                             <p>{__('Organize and assign tables efficiently. Monitor the status of each table in real-time.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-tables" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('Manage Tables', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-tables" isPrimary className="mt-4 inline-block">{__('Manage Tables', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-products mr-2"></span> {__('Product Management', 'ristopos')}</h3>
                             <p>{__('Add, edit, and delete products with ease. Manage your menu dynamically.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-product-management" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('Manage Products', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-product-management" isPrimary className="mt-4 inline-block">{__('Manage Products', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-money-alt mr-2"></span> {__('POS System', 'ristopos')}</h3>
                             <p>{__('Manage table transactions with our intuitive and fast POS system.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-products" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('Open POS', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-products" isPrimary className="mt-4 inline-block">{__('Open POS', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-chart-bar mr-2"></span> {__('Advanced Reporting', 'ristopos')}</h3>
                             <p>{__('Analyze your restaurant\'s performance with detailed reports and valuable insights.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-analytics" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('View Reports', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-analytics" isPrimary className="mt-4 inline-block">{__('View Reports', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-groups mr-2"></span> {__('Staff Management', 'ristopos')}</h3>
                             <p>{__('Efficiently manage your staff, assign roles, and monitor performance.', 'ristopos')}</p>
-                            <a href="/admin.php?page=ristopos-staff" className="button button-primary mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">{__('Manage Staff', 'ristopos')}</a>
+                            <Button href="/admin.php?page=ristopos-staff" isPrimary className="mt-4 inline-block">{__('Manage Staff', 'ristopos')}</Button>
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@ const HomePage: React.FC = () => {
                 <div className="ristopos-support my-8 text-center">
                     <h2 className="text-2xl font-semibold mb-4">{__('Need Help?', 'ristopos')}</h2>
                     <p className="text-lg">{__('If you have any questions or need assistance, do not hesitate to contact our support team.', 'ristopos')}</p>
-                    <a href="#" className="button button-secondary mt-4 inline-block bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition duration-300">{__('Contact Support', 'ristopos')}</a>
+                    <Button href="#" isSecondary className="mt-4 inline-block">{__('Contact Support', 'ristopos')}</Button>
                 </div>
             </div>
         </div>
