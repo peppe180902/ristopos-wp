@@ -18,32 +18,32 @@ const HomePage: React.FC = () => {
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-cart mr-2"></span> {__('Order Management', 'ristopos')}</h3>
                             <p>{__('Easily manage ongoing orders and access the complete history. Optimize the workflow from the kitchen to the dining room.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-orders" isPrimary className="mt-4 inline-block">{__('Manage Orders', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-orders" variant="primary" className="mt-4 inline-block">{__('Manage Orders', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-grid-view mr-2"></span> {__('Table Management', 'ristopos')}</h3>
                             <p>{__('Organize and assign tables efficiently. Monitor the status of each table in real-time.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-tables" isPrimary className="mt-4 inline-block">{__('Manage Tables', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-tables" variant="primary" className="mt-4 inline-block">{__('Manage Tables', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-products mr-2"></span> {__('Product Management', 'ristopos')}</h3>
                             <p>{__('Add, edit, and delete products with ease. Manage your menu dynamically.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-product-management" isPrimary className="mt-4 inline-block">{__('Manage Products', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-product-management" variant="primary" className="mt-4 inline-block">{__('Manage Products', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-money-alt mr-2"></span> {__('POS System', 'ristopos')}</h3>
                             <p>{__('Manage table transactions with our intuitive and fast POS system.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-products" isPrimary className="mt-4 inline-block">{__('Open POS', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-products" variant="primary" className="mt-4 inline-block">{__('Open POS', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-chart-bar mr-2"></span> {__('Advanced Reporting', 'ristopos')}</h3>
                             <p>{__('Analyze your restaurant\'s performance with detailed reports and valuable insights.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-analytics" isPrimary className="mt-4 inline-block">{__('View Reports', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-analytics" variant="primary" className="mt-4 inline-block">{__('View Reports', 'ristopos')}</Button>
                         </div>
                         <div className="ristopos-feature-item p-6 border rounded-lg shadow-lg bg-gray-50 hover:bg-gray-100 transition duration-300">
                             <h3 className="text-xl font-semibold mb-2 flex items-center"><span className="dashicons dashicons-groups mr-2"></span> {__('Staff Management', 'ristopos')}</h3>
                             <p>{__('Efficiently manage your staff, assign roles, and monitor performance.', 'ristopos')}</p>
-                            <Button href="/admin.php?page=ristopos-staff" isPrimary className="mt-4 inline-block">{__('Manage Staff', 'ristopos')}</Button>
+                            <Button href="/wp-admin/admin.php?page=ristopos-staff" variant="primary" className="mt-4 inline-block">{__('Manage Staff', 'ristopos')}</Button>
                         </div>
                     </div>
                 </div>

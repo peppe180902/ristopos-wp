@@ -26,6 +26,7 @@
     "tailwindcss": "^3.4.16"
   },
   "dependencies": {
+    "@wordpress/components": "^28.13.0",
     "@wordpress/i18n": "^5.13.0",
     "postcss": "^8.4.49",
     "react-router-dom": "^7.0.2"

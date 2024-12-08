@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+/******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -6,12 +6,9 @@
 /*!*********************!*\
   !*** ./src/App.jsx ***!
   \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-D52XG6IA.mjs");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./src/routes/index.tsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
@@ -41,7 +38,7 @@ const App = () => {
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+/* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
 
@@ -49,12 +46,9 @@ const App = () => {
 /*!********************************!*\
   !*** ./src/pages/HomePage.tsx ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
@@ -67,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const HomePage = () => {
+var HomePage = function HomePage() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "ristopos-header bg-gradient-to-r min-h-screen flex items-center justify-center",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -98,8 +92,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Easily manage ongoing orders and access the complete history. Optimize the workflow from the kitchen to the dining room.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-orders",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-orders",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Manage Orders', 'ristopos')
             })]
@@ -113,8 +107,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Organize and assign tables efficiently. Monitor the status of each table in real-time.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-tables",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-tables",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Manage Tables', 'ristopos')
             })]
@@ -128,8 +122,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add, edit, and delete products with ease. Manage your menu dynamically.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-product-management",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-product-management",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Manage Products', 'ristopos')
             })]
@@ -143,8 +137,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Manage table transactions with our intuitive and fast POS system.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-products",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-products",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Open POS', 'ristopos')
             })]
@@ -158,8 +152,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Analyze your restaurant\'s performance with detailed reports and valuable insights.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-analytics",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-analytics",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('View Reports', 'ristopos')
             })]
@@ -173,8 +167,8 @@ const HomePage = () => {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Efficiently manage your staff, assign roles, and monitor performance.', 'ristopos')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              href: "/admin.php?page=ristopos-staff",
-              isPrimary: true,
+              href: "/wp-admin/admin.php?page=ristopos-staff",
+              variant: "primary",
               className: "mt-4 inline-block",
               children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Manage Staff', 'ristopos')
             })]
@@ -227,7 +221,7 @@ const HomePage = () => {
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);
+/* harmony default export */ __webpack_exports__["default"] = (HomePage);
 
 /***/ }),
 
@@ -235,12 +229,9 @@ const HomePage = () => {
 /*!******************************!*\
   !*** ./src/routes/index.tsx ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/HomePage */ "./src/pages/HomePage.tsx");
 /**
  * Internal dependencies
@@ -250,7 +241,7 @@ const routes = [{
   path: '/',
   element: _pages_HomePage__WEBPACK_IMPORTED_MODULE_0__["default"]
 }];
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
+/* harmony default export */ __webpack_exports__["default"] = (routes);
 
 /***/ }),
 
@@ -258,7 +249,7 @@ const routes = [{
 /*!********************************!*\
   !*** ./src/style/tailwind.css ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -270,7 +261,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./src/style/main.scss ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -282,7 +273,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************!*\
   !*** ./node_modules/react-router/node_modules/cookie/dist/index.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports) {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
@@ -530,7 +521,7 @@ function isDate(val) {
 /*!**********************************************************!*\
   !*** ./node_modules/set-cookie-parser/lib/set-cookie.js ***!
   \**********************************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 
 
@@ -764,7 +755,7 @@ module.exports.splitCookiesString = splitCookiesString;
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["React"];
 
@@ -774,7 +765,7 @@ module.exports = window["React"];
 /*!**********************************!*\
   !*** external "ReactJSXRuntime" ***!
   \**********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["ReactJSXRuntime"];
 
@@ -784,7 +775,7 @@ module.exports = window["ReactJSXRuntime"];
 /*!************************************!*\
   !*** external ["wp","components"] ***!
   \************************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["components"];
 
@@ -794,7 +785,7 @@ module.exports = window["wp"]["components"];
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
   \*********************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["element"];
 
@@ -804,7 +795,7 @@ module.exports = window["wp"]["element"];
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
   \******************************/
-/***/ ((module) => {
+/***/ (function(module) {
 
 module.exports = window["wp"]["i18n"];
 
@@ -814,121 +805,121 @@ module.exports = window["wp"]["i18n"];
 /*!***********************************************************************!*\
   !*** ./node_modules/react-router/dist/development/chunk-D52XG6IA.mjs ***!
   \***********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Action: () => (/* binding */ Action),
-/* harmony export */   Await: () => (/* binding */ Await),
-/* harmony export */   BrowserRouter: () => (/* binding */ BrowserRouter),
-/* harmony export */   DataRouterContext: () => (/* binding */ DataRouterContext),
-/* harmony export */   DataRouterStateContext: () => (/* binding */ DataRouterStateContext),
-/* harmony export */   ErrorResponseImpl: () => (/* binding */ ErrorResponseImpl),
-/* harmony export */   FetchersContext: () => (/* binding */ FetchersContext),
-/* harmony export */   Form: () => (/* binding */ Form),
-/* harmony export */   FrameworkContext: () => (/* binding */ FrameworkContext),
-/* harmony export */   HashRouter: () => (/* binding */ HashRouter),
-/* harmony export */   HistoryRouter: () => (/* binding */ HistoryRouter),
-/* harmony export */   IDLE_BLOCKER: () => (/* binding */ IDLE_BLOCKER),
-/* harmony export */   IDLE_FETCHER: () => (/* binding */ IDLE_FETCHER),
-/* harmony export */   IDLE_NAVIGATION: () => (/* binding */ IDLE_NAVIGATION),
-/* harmony export */   Link: () => (/* binding */ Link),
-/* harmony export */   Links: () => (/* binding */ Links),
-/* harmony export */   LocationContext: () => (/* binding */ LocationContext),
-/* harmony export */   MemoryRouter: () => (/* binding */ MemoryRouter),
-/* harmony export */   Meta: () => (/* binding */ Meta),
-/* harmony export */   NavLink: () => (/* binding */ NavLink),
-/* harmony export */   Navigate: () => (/* binding */ Navigate),
-/* harmony export */   NavigationContext: () => (/* binding */ NavigationContext),
-/* harmony export */   Outlet: () => (/* binding */ Outlet),
-/* harmony export */   PrefetchPageLinks: () => (/* binding */ PrefetchPageLinks),
-/* harmony export */   RemixErrorBoundary: () => (/* binding */ RemixErrorBoundary),
-/* harmony export */   Route: () => (/* binding */ Route),
-/* harmony export */   RouteContext: () => (/* binding */ RouteContext),
-/* harmony export */   Router: () => (/* binding */ Router),
-/* harmony export */   RouterProvider: () => (/* binding */ RouterProvider),
-/* harmony export */   Routes: () => (/* binding */ Routes),
-/* harmony export */   Scripts: () => (/* binding */ Scripts),
-/* harmony export */   ScrollRestoration: () => (/* binding */ ScrollRestoration),
-/* harmony export */   ServerMode: () => (/* binding */ ServerMode),
-/* harmony export */   ServerRouter: () => (/* binding */ ServerRouter),
-/* harmony export */   SingleFetchRedirectSymbol: () => (/* binding */ SingleFetchRedirectSymbol),
-/* harmony export */   StaticRouter: () => (/* binding */ StaticRouter),
-/* harmony export */   StaticRouterProvider: () => (/* binding */ StaticRouterProvider),
-/* harmony export */   ViewTransitionContext: () => (/* binding */ ViewTransitionContext),
-/* harmony export */   createBrowserHistory: () => (/* binding */ createBrowserHistory),
-/* harmony export */   createBrowserRouter: () => (/* binding */ createBrowserRouter),
-/* harmony export */   createClientRoutes: () => (/* binding */ createClientRoutes),
-/* harmony export */   createClientRoutesWithHMRRevalidationOptOut: () => (/* binding */ createClientRoutesWithHMRRevalidationOptOut),
-/* harmony export */   createCookie: () => (/* binding */ createCookie),
-/* harmony export */   createCookieSessionStorage: () => (/* binding */ createCookieSessionStorage),
-/* harmony export */   createHashRouter: () => (/* binding */ createHashRouter),
-/* harmony export */   createMemoryRouter: () => (/* binding */ createMemoryRouter),
-/* harmony export */   createMemorySessionStorage: () => (/* binding */ createMemorySessionStorage),
-/* harmony export */   createPath: () => (/* binding */ createPath),
-/* harmony export */   createRequestHandler: () => (/* binding */ createRequestHandler),
-/* harmony export */   createRouter: () => (/* binding */ createRouter),
-/* harmony export */   createRoutesFromChildren: () => (/* binding */ createRoutesFromChildren),
-/* harmony export */   createRoutesFromElements: () => (/* binding */ createRoutesFromElements),
-/* harmony export */   createRoutesStub: () => (/* binding */ createRoutesStub),
-/* harmony export */   createSearchParams: () => (/* binding */ createSearchParams),
-/* harmony export */   createSession: () => (/* binding */ createSession),
-/* harmony export */   createSessionStorage: () => (/* binding */ createSessionStorage),
-/* harmony export */   createStaticHandler: () => (/* binding */ createStaticHandler2),
-/* harmony export */   createStaticRouter: () => (/* binding */ createStaticRouter),
-/* harmony export */   data: () => (/* binding */ data),
-/* harmony export */   decodeViaTurboStream: () => (/* binding */ decodeViaTurboStream),
-/* harmony export */   deserializeErrors: () => (/* binding */ deserializeErrors2),
-/* harmony export */   generatePath: () => (/* binding */ generatePath),
-/* harmony export */   getPatchRoutesOnNavigationFunction: () => (/* binding */ getPatchRoutesOnNavigationFunction),
-/* harmony export */   getSingleFetchDataStrategy: () => (/* binding */ getSingleFetchDataStrategy),
-/* harmony export */   invariant: () => (/* binding */ invariant),
-/* harmony export */   isCookie: () => (/* binding */ isCookie),
-/* harmony export */   isRouteErrorResponse: () => (/* binding */ isRouteErrorResponse),
-/* harmony export */   isSession: () => (/* binding */ isSession),
-/* harmony export */   mapRouteProperties: () => (/* binding */ mapRouteProperties),
-/* harmony export */   matchPath: () => (/* binding */ matchPath),
-/* harmony export */   matchRoutes: () => (/* binding */ matchRoutes),
-/* harmony export */   parsePath: () => (/* binding */ parsePath),
-/* harmony export */   redirect: () => (/* binding */ redirect),
-/* harmony export */   redirectDocument: () => (/* binding */ redirectDocument),
-/* harmony export */   renderMatches: () => (/* binding */ renderMatches),
-/* harmony export */   replace: () => (/* binding */ replace),
-/* harmony export */   resolvePath: () => (/* binding */ resolvePath),
-/* harmony export */   setDevServerHooks: () => (/* binding */ setDevServerHooks),
-/* harmony export */   shouldHydrateRouteLoader: () => (/* binding */ shouldHydrateRouteLoader),
-/* harmony export */   useActionData: () => (/* binding */ useActionData),
-/* harmony export */   useAsyncError: () => (/* binding */ useAsyncError),
-/* harmony export */   useAsyncValue: () => (/* binding */ useAsyncValue),
-/* harmony export */   useBeforeUnload: () => (/* binding */ useBeforeUnload),
-/* harmony export */   useBlocker: () => (/* binding */ useBlocker),
-/* harmony export */   useFetcher: () => (/* binding */ useFetcher),
-/* harmony export */   useFetchers: () => (/* binding */ useFetchers),
-/* harmony export */   useFogOFWarDiscovery: () => (/* binding */ useFogOFWarDiscovery),
-/* harmony export */   useFormAction: () => (/* binding */ useFormAction),
-/* harmony export */   useHref: () => (/* binding */ useHref),
-/* harmony export */   useInRouterContext: () => (/* binding */ useInRouterContext),
-/* harmony export */   useLinkClickHandler: () => (/* binding */ useLinkClickHandler),
-/* harmony export */   useLoaderData: () => (/* binding */ useLoaderData),
-/* harmony export */   useLocation: () => (/* binding */ useLocation),
-/* harmony export */   useMatch: () => (/* binding */ useMatch),
-/* harmony export */   useMatches: () => (/* binding */ useMatches),
-/* harmony export */   useNavigate: () => (/* binding */ useNavigate),
-/* harmony export */   useNavigation: () => (/* binding */ useNavigation),
-/* harmony export */   useNavigationType: () => (/* binding */ useNavigationType),
-/* harmony export */   useOutlet: () => (/* binding */ useOutlet),
-/* harmony export */   useOutletContext: () => (/* binding */ useOutletContext),
-/* harmony export */   useParams: () => (/* binding */ useParams),
-/* harmony export */   usePrompt: () => (/* binding */ usePrompt),
-/* harmony export */   useResolvedPath: () => (/* binding */ useResolvedPath),
-/* harmony export */   useRevalidator: () => (/* binding */ useRevalidator),
-/* harmony export */   useRouteError: () => (/* binding */ useRouteError),
-/* harmony export */   useRouteLoaderData: () => (/* binding */ useRouteLoaderData),
-/* harmony export */   useRoutes: () => (/* binding */ useRoutes),
-/* harmony export */   useScrollRestoration: () => (/* binding */ useScrollRestoration),
-/* harmony export */   useSearchParams: () => (/* binding */ useSearchParams),
-/* harmony export */   useSubmit: () => (/* binding */ useSubmit),
-/* harmony export */   useViewTransitionState: () => (/* binding */ useViewTransitionState)
+/* harmony export */   Action: function() { return /* binding */ Action; },
+/* harmony export */   Await: function() { return /* binding */ Await; },
+/* harmony export */   BrowserRouter: function() { return /* binding */ BrowserRouter; },
+/* harmony export */   DataRouterContext: function() { return /* binding */ DataRouterContext; },
+/* harmony export */   DataRouterStateContext: function() { return /* binding */ DataRouterStateContext; },
+/* harmony export */   ErrorResponseImpl: function() { return /* binding */ ErrorResponseImpl; },
+/* harmony export */   FetchersContext: function() { return /* binding */ FetchersContext; },
+/* harmony export */   Form: function() { return /* binding */ Form; },
+/* harmony export */   FrameworkContext: function() { return /* binding */ FrameworkContext; },
+/* harmony export */   HashRouter: function() { return /* binding */ HashRouter; },
+/* harmony export */   HistoryRouter: function() { return /* binding */ HistoryRouter; },
+/* harmony export */   IDLE_BLOCKER: function() { return /* binding */ IDLE_BLOCKER; },
+/* harmony export */   IDLE_FETCHER: function() { return /* binding */ IDLE_FETCHER; },
+/* harmony export */   IDLE_NAVIGATION: function() { return /* binding */ IDLE_NAVIGATION; },
+/* harmony export */   Link: function() { return /* binding */ Link; },
+/* harmony export */   Links: function() { return /* binding */ Links; },
+/* harmony export */   LocationContext: function() { return /* binding */ LocationContext; },
+/* harmony export */   MemoryRouter: function() { return /* binding */ MemoryRouter; },
+/* harmony export */   Meta: function() { return /* binding */ Meta; },
+/* harmony export */   NavLink: function() { return /* binding */ NavLink; },
+/* harmony export */   Navigate: function() { return /* binding */ Navigate; },
+/* harmony export */   NavigationContext: function() { return /* binding */ NavigationContext; },
+/* harmony export */   Outlet: function() { return /* binding */ Outlet; },
+/* harmony export */   PrefetchPageLinks: function() { return /* binding */ PrefetchPageLinks; },
+/* harmony export */   RemixErrorBoundary: function() { return /* binding */ RemixErrorBoundary; },
+/* harmony export */   Route: function() { return /* binding */ Route; },
+/* harmony export */   RouteContext: function() { return /* binding */ RouteContext; },
+/* harmony export */   Router: function() { return /* binding */ Router; },
+/* harmony export */   RouterProvider: function() { return /* binding */ RouterProvider; },
+/* harmony export */   Routes: function() { return /* binding */ Routes; },
+/* harmony export */   Scripts: function() { return /* binding */ Scripts; },
+/* harmony export */   ScrollRestoration: function() { return /* binding */ ScrollRestoration; },
+/* harmony export */   ServerMode: function() { return /* binding */ ServerMode; },
+/* harmony export */   ServerRouter: function() { return /* binding */ ServerRouter; },
+/* harmony export */   SingleFetchRedirectSymbol: function() { return /* binding */ SingleFetchRedirectSymbol; },
+/* harmony export */   StaticRouter: function() { return /* binding */ StaticRouter; },
+/* harmony export */   StaticRouterProvider: function() { return /* binding */ StaticRouterProvider; },
+/* harmony export */   ViewTransitionContext: function() { return /* binding */ ViewTransitionContext; },
+/* harmony export */   createBrowserHistory: function() { return /* binding */ createBrowserHistory; },
+/* harmony export */   createBrowserRouter: function() { return /* binding */ createBrowserRouter; },
+/* harmony export */   createClientRoutes: function() { return /* binding */ createClientRoutes; },
+/* harmony export */   createClientRoutesWithHMRRevalidationOptOut: function() { return /* binding */ createClientRoutesWithHMRRevalidationOptOut; },
+/* harmony export */   createCookie: function() { return /* binding */ createCookie; },
+/* harmony export */   createCookieSessionStorage: function() { return /* binding */ createCookieSessionStorage; },
+/* harmony export */   createHashRouter: function() { return /* binding */ createHashRouter; },
+/* harmony export */   createMemoryRouter: function() { return /* binding */ createMemoryRouter; },
+/* harmony export */   createMemorySessionStorage: function() { return /* binding */ createMemorySessionStorage; },
+/* harmony export */   createPath: function() { return /* binding */ createPath; },
+/* harmony export */   createRequestHandler: function() { return /* binding */ createRequestHandler; },
+/* harmony export */   createRouter: function() { return /* binding */ createRouter; },
+/* harmony export */   createRoutesFromChildren: function() { return /* binding */ createRoutesFromChildren; },
+/* harmony export */   createRoutesFromElements: function() { return /* binding */ createRoutesFromElements; },
+/* harmony export */   createRoutesStub: function() { return /* binding */ createRoutesStub; },
+/* harmony export */   createSearchParams: function() { return /* binding */ createSearchParams; },
+/* harmony export */   createSession: function() { return /* binding */ createSession; },
+/* harmony export */   createSessionStorage: function() { return /* binding */ createSessionStorage; },
+/* harmony export */   createStaticHandler: function() { return /* binding */ createStaticHandler2; },
+/* harmony export */   createStaticRouter: function() { return /* binding */ createStaticRouter; },
+/* harmony export */   data: function() { return /* binding */ data; },
+/* harmony export */   decodeViaTurboStream: function() { return /* binding */ decodeViaTurboStream; },
+/* harmony export */   deserializeErrors: function() { return /* binding */ deserializeErrors2; },
+/* harmony export */   generatePath: function() { return /* binding */ generatePath; },
+/* harmony export */   getPatchRoutesOnNavigationFunction: function() { return /* binding */ getPatchRoutesOnNavigationFunction; },
+/* harmony export */   getSingleFetchDataStrategy: function() { return /* binding */ getSingleFetchDataStrategy; },
+/* harmony export */   invariant: function() { return /* binding */ invariant; },
+/* harmony export */   isCookie: function() { return /* binding */ isCookie; },
+/* harmony export */   isRouteErrorResponse: function() { return /* binding */ isRouteErrorResponse; },
+/* harmony export */   isSession: function() { return /* binding */ isSession; },
+/* harmony export */   mapRouteProperties: function() { return /* binding */ mapRouteProperties; },
+/* harmony export */   matchPath: function() { return /* binding */ matchPath; },
+/* harmony export */   matchRoutes: function() { return /* binding */ matchRoutes; },
+/* harmony export */   parsePath: function() { return /* binding */ parsePath; },
+/* harmony export */   redirect: function() { return /* binding */ redirect; },
+/* harmony export */   redirectDocument: function() { return /* binding */ redirectDocument; },
+/* harmony export */   renderMatches: function() { return /* binding */ renderMatches; },
+/* harmony export */   replace: function() { return /* binding */ replace; },
+/* harmony export */   resolvePath: function() { return /* binding */ resolvePath; },
+/* harmony export */   setDevServerHooks: function() { return /* binding */ setDevServerHooks; },
+/* harmony export */   shouldHydrateRouteLoader: function() { return /* binding */ shouldHydrateRouteLoader; },
+/* harmony export */   useActionData: function() { return /* binding */ useActionData; },
+/* harmony export */   useAsyncError: function() { return /* binding */ useAsyncError; },
+/* harmony export */   useAsyncValue: function() { return /* binding */ useAsyncValue; },
+/* harmony export */   useBeforeUnload: function() { return /* binding */ useBeforeUnload; },
+/* harmony export */   useBlocker: function() { return /* binding */ useBlocker; },
+/* harmony export */   useFetcher: function() { return /* binding */ useFetcher; },
+/* harmony export */   useFetchers: function() { return /* binding */ useFetchers; },
+/* harmony export */   useFogOFWarDiscovery: function() { return /* binding */ useFogOFWarDiscovery; },
+/* harmony export */   useFormAction: function() { return /* binding */ useFormAction; },
+/* harmony export */   useHref: function() { return /* binding */ useHref; },
+/* harmony export */   useInRouterContext: function() { return /* binding */ useInRouterContext; },
+/* harmony export */   useLinkClickHandler: function() { return /* binding */ useLinkClickHandler; },
+/* harmony export */   useLoaderData: function() { return /* binding */ useLoaderData; },
+/* harmony export */   useLocation: function() { return /* binding */ useLocation; },
+/* harmony export */   useMatch: function() { return /* binding */ useMatch; },
+/* harmony export */   useMatches: function() { return /* binding */ useMatches; },
+/* harmony export */   useNavigate: function() { return /* binding */ useNavigate; },
+/* harmony export */   useNavigation: function() { return /* binding */ useNavigation; },
+/* harmony export */   useNavigationType: function() { return /* binding */ useNavigationType; },
+/* harmony export */   useOutlet: function() { return /* binding */ useOutlet; },
+/* harmony export */   useOutletContext: function() { return /* binding */ useOutletContext; },
+/* harmony export */   useParams: function() { return /* binding */ useParams; },
+/* harmony export */   usePrompt: function() { return /* binding */ usePrompt; },
+/* harmony export */   useResolvedPath: function() { return /* binding */ useResolvedPath; },
+/* harmony export */   useRevalidator: function() { return /* binding */ useRevalidator; },
+/* harmony export */   useRouteError: function() { return /* binding */ useRouteError; },
+/* harmony export */   useRouteLoaderData: function() { return /* binding */ useRouteLoaderData; },
+/* harmony export */   useRoutes: function() { return /* binding */ useRoutes; },
+/* harmony export */   useScrollRestoration: function() { return /* binding */ useScrollRestoration; },
+/* harmony export */   useSearchParams: function() { return /* binding */ useSearchParams; },
+/* harmony export */   useSubmit: function() { return /* binding */ useSubmit; },
+/* harmony export */   useViewTransitionState: function() { return /* binding */ useViewTransitionState; }
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var turbo_stream__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! turbo-stream */ "./node_modules/turbo-stream/dist/turbo-stream.mjs");
@@ -10448,12 +10439,12 @@ function deserializeErrors2(errors) {
 /*!*********************************************************!*\
   !*** ./node_modules/turbo-stream/dist/turbo-stream.mjs ***!
   \*********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   decode: () => (/* binding */ decode),
-/* harmony export */   encode: () => (/* binding */ encode)
+/* harmony export */   decode: function() { return /* binding */ decode; },
+/* harmony export */   encode: function() { return /* binding */ encode; }
 /* harmony export */ });
 // src/utils.ts
 var HOLE = -1;
@@ -11157,49 +11148,49 @@ function raceSignal(promise, signal) {
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
+/******/ 		__webpack_require__.n = function(module) {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 		__webpack_require__.d = function(exports, definition) {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
-(() => {
+!function() {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
@@ -11231,8 +11222,7 @@ __webpack_require__.r(__webpack_exports__);
 const container = document.getElementById('ristopos');
 const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(container);
 root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
-})();
-
+}();
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

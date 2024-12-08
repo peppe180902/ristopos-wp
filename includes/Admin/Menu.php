@@ -59,7 +59,7 @@ class Menu
             'POS',
             'take_orders',
             'ristopos-products',
-            [$this, 'ristopos_products_page']
+            [$this, 'getProductsPage']
         );
 
         add_submenu_page(
@@ -68,7 +68,7 @@ class Menu
             'Ordini',
             'view_orders',
             'ristopos-orders',
-            [$this, 'ristopos_orders_page']
+            [$this, 'getOrdersPage']
         );
 
         add_submenu_page(
@@ -77,7 +77,7 @@ class Menu
             'Gestione Tavoli',
             'take_orders',
             'ristopos-tables',
-            [$this, 'ristopos_tables_page']
+            [$this, 'getTablesPage']
         );
 
         add_submenu_page(
@@ -86,7 +86,7 @@ class Menu
             'Gestione Prodotti',
             'manage_menu',
             'ristopos-product-management',
-            [$this, 'ristopos_product_management_page']
+            [$this, 'getProductManagementPage']
         );
 
         add_submenu_page(
@@ -180,22 +180,22 @@ class Menu
     }
 
 
-    public function ristopos_products_page()
+    public function getProductsPage()
     {
         require_once RISTOPOS_TEMPLATE_PATH . '/admin/products.php';
     }
 
-    public function ristopos_orders_page()
+    public function getOrdersPage()
     {
         require_once RISTOPOS_TEMPLATE_PATH . '/admin/orders.php';
     }
 
-    public function ristopos_tables_page()
+    public function getTablesPage()
     {
         require_once RISTOPOS_TEMPLATE_PATH . '/admin/tables.php';
     }
 
-    public function ristopos_product_management_page()
+    public function getProductManagementPage()
     {
         require_once RISTOPOS_TEMPLATE_PATH . '/admin/product-management.php';
     }
