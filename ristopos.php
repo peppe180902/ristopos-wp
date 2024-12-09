@@ -1,25 +1,25 @@
 <?php
 /**
- * Plugin Name: RistoPOS
- * Plugin URI: http://example.com/ristopos
- * Description: Un plugin POS per gestire un ristorante integrato con WooCommerce
+ * Plugin Name:      RistoPOS
+ * Plugin URI:       http://wordpress.org/plugins/ristopos/
+ * Description:      Restaurant Management System for WooCommerce, with POS, table management, staff management, and advanced analytics.
  * Requires Plugins: woocommerce
- * Version: 0.1.1
- * Author: Phyno
- * Author URI: https://www.giuseppenapoli.com/
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: ristopos
- * Domain Path: /languages
+ * Requires PHP:     7.4
+ * Version:          0.1.1
+ * Tested upto:      6.7.1
+ * Author:           Squartup
+ * Author URI:       https://squartup.com
+ * License URI:      http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:          GPL-2.0-or-later
+ * Text Domain:      ristopos
+ * Domain Path:      /languages
  */
 
- if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
-}
-
+defined('ABSPATH') || exit;
 
 // Verifica la presenza di WooCommerce
-function ristopos_check_woocommerce() {
+function ristopos_check_woocommerce()
+{
     if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
         return true;
     }
@@ -31,7 +31,8 @@ function ristopos_check_woocommerce() {
 
 
 // Avviso se WooCommerce non è attivo
-function ristopos_woocommerce_missing_notice() {
+function ristopos_woocommerce_missing_notice()
+{
     ?>
     <div class="error">
         <p><?php _e('RistoPOS richiede che WooCommerce sia installato e attivo.', 'ristopos'); ?></p>
@@ -39,29 +40,26 @@ function ristopos_woocommerce_missing_notice() {
     <?php
 }
 
-function ristopos_hide_admin_bar() {
-    if (isset($_GET['page']) && ($_GET['page'] === 'ristopos' || $_GET['page'] === 'ristopos-orders' || $_GET['page'] === 'ristopos-products' || $_GET['page'] === 'ristopos-tables' || $_GET['page'] === 'ristopos-product-management' || $_GET['page'] === 'ristopos-analytics' || $_GET['page'] === 'ristopos-staff')) {
-        add_filter('show_admin_bar', '__return_false');
-        add_action('admin_head', 'ristopos_custom_admin_styles');
-    }
-}
-add_action('admin_init', 'ristopos_hide_admin_bar');
 
-function ristopos_custom_admin_styles() {
+
+function ristopos_custom_admin_styles()
+{
     echo '
     <style>
-            .form-table th {
-                width: 150px;
-            }
-            .form-table input[type="text"],
-            .form-table input[type="number"],
-            .form-table select {
-                width: 300px;
-            }
-            .wp-list-table img {
-                max-width: 50px;
-                height: auto;
-            }
+        .form-table th {
+            width: 150px;
+        }
+
+        .form-table input[type="text"],
+        .form-table input[type="number"],
+        .form-table select {
+            width: 300px;
+        }
+
+        .wp-list-table img {
+            max-width: 50px;
+            height: auto;
+        }
 
         .ristopos-button {
             background-color: #0073aa;
@@ -79,109 +77,43 @@ function ristopos_custom_admin_styles() {
             gap: 5px;
         }
         .ristopos-header {
-            background-color: #23282d;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        #wpcontent, #wpfooter {
-            margin-left: 0 !important;
-            padding-left: 0 !important;
-        }
-        #wpbody-content {
-            padding-bottom: 0;
-        }
-        #wpbody {
-            padding-top: 0px
-        }
-        #wpfooter {
-            display: none;
-        }
+        // #wpcontent, #wpfooter {
+        //     margin-left: 0 !important;
+        //     padding-left: 0 !important;
+        // }
+        // #wpbody-content {
+        //     padding-bottom: 0;
+        // }
+        // #wpbody {
+        //     padding-top: 0px
+        // }
+        // #wpfooter {
+        //     display: none;
+        // }
         html.wp-toolbar {
             padding-top: 0 !important;
         }
-        #wpadminbar, #adminmenumain {
-            display: none;
-        }
+        // #wpadminbar, #adminmenumain {
+        //     display: none;
+        // }
         .wrap.ristopos-container {
             margin: 0;
             max-width: 100%;
         }
         
-        #wpadminbar, #adminmenuback, #adminmenuwrap { display: none !important; }
-        #wpcontent, #wpfooter { margin-left: 0 !important; }
+        // #wpadminbar, #adminmenuback, #adminmenuwrap { display: none !important; }
+        // #wpcontent, #wpfooter { margin-left: 0 !important; }
     </style>
     ';
 }
 
-function ristopos_add_menu() {
-    add_menu_page(
-        'RistoPOS',
-        'RistoPOS',
-        'ristopos_access',
-        'ristopos',
-        'ristopos_admin_page',
-        'dashicons-food',
-        56
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'POS',
-        'POS',
-        'take_orders',
-        'ristopos-products',
-        'ristopos_products_page'
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'Ordini',
-        'Ordini',
-        'view_orders',
-        'ristopos-orders',
-        'ristopos_orders_page'
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'Gestione Tavoli',
-        'Gestione Tavoli',
-        'take_orders',
-        'ristopos-tables',
-        'ristopos_tables_page'
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'Gestione Prodotti',
-        'Gestione Prodotti',
-        'manage_menu',
-        'ristopos-product-management',
-        'ristopos_product_management_page'
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'Dashboard Analitica',
-        'Dashboard Analitica',
-        'view_reports',
-        'ristopos-analytics',
-        'ristopos_analytics_dashboard'
-    );
-
-    add_submenu_page(
-        'ristopos',
-        'Gestione del Personale',
-        'Gestione del Personale',
-        'manage_staff',
-        'ristopos-staff',
-        'ristopos_staff_management'
-    );
-}
-
-function ristopos_login_redirect($redirect_to, $request, $user) {
+function ristopos_login_redirect($redirect_to, $request, $user)
+{
     if (isset($user->roles) && is_array($user->roles)) {
         if (in_array('waiter', $user->roles) || in_array('chef', $user->roles) || in_array('restaurant_manager', $user->roles)) {
             return admin_url('admin.php?page=ristopos');
@@ -191,100 +123,6 @@ function ristopos_login_redirect($redirect_to, $request, $user) {
 }
 add_filter('login_redirect', 'ristopos_login_redirect', 10, 3);
 
-// Pagine del menu
-function ristopos_admin_page() {
-    echo '<div class="ristopos-header">';
-    
-    // Bottone per tornare a WordPress
-    echo '<a href="' . admin_url() . '" class="ristopos-button ristopos-back-button">Torna a WordPress</a>';
-    
-    // Sezione dei pulsanti principali
-    echo '<div class="ristopos-div-button">';
-    echo '</div>';
-    
-    echo '</div>'; // Chiudi il div .ristopos-header
-
-    // Sezione principale di benvenuto
-    ?>
-    <div class="wrap ristopos-welcome-page">
-        <h1>Benvenuto in RistoPOS - Gestione Completa per il Tuo Ristorante</h1>
-        
-        <div class="ristopos-intro">
-            <p>RistoPOS è la soluzione integrata per la gestione efficiente del tuo ristorante. Dalla gestione degli ordini alla reportistica avanzata, RistoPOS ti offre tutti gli strumenti necessari per ottimizzare le tue operazioni.</p>
-        </div>
-
-        <div class="ristopos-features">
-            <h2>Funzionalità Principali</h2>
-            <div class="ristopos-feature-grid">
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-cart"></span> Gestione Ordini</h3>
-                    <p>Gestisci facilmente gli ordini in corso e accedi allo storico completo. Ottimizza il flusso di lavoro dalla cucina alla sala.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-orders'); ?>" class="button button-primary">Gestisci Ordini</a>
-                </div>
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-grid-view"></span> Gestione Tavoli</h3>
-                    <p>Organizza e assegna i tavoli in modo efficiente. Monitora lo stato di ogni tavolo in tempo reale.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-tables'); ?>" class="button button-primary">Gestisci Tavoli</a>
-                </div>
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-products"></span> Gestione Prodotti</h3>
-                    <p>Aggiungi, modifica ed elimina prodotti con facilità. Gestisci il tuo menu in modo dinamico.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-product-management'); ?>" class="button button-primary">Gestisci Prodotti</a>
-                </div>
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-money-alt"></span> Sistema POS</h3>
-                    <p>Gestisci le transazioni al tavolo con il nostro sistema POS intuitivo e veloce.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-products'); ?>" class="button button-primary">Apri POS</a>
-                </div>
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-chart-bar"></span> Reportistica Avanzata</h3>
-                    <p>Analizza le performance del tuo ristorante con report dettagliati e insights preziosi.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-analytics'); ?>" class="button button-primary">Visualizza Report</a>
-                </div>
-                <div class="ristopos-feature-item">
-                    <h3><span class="dashicons dashicons-groups"></span> Gestione Personale</h3>
-                    <p>Gestisci efficacemente il tuo staff, assegna ruoli e monitora le performance.</p>
-                    <a href="<?php echo admin_url('admin.php?page=ristopos-staff'); ?>" class="button button-primary">Gestisci Staff</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="ristopos-quickstart">
-            <h2>Guida Rapida</h2>
-            <ol>
-                <li><strong>Configura i Prodotti:</strong> Inizia aggiungendo i tuoi prodotti nella sezione Gestione Prodotti.</li>
-                <li><strong>Imposta i Tavoli:</strong> Configura la disposizione dei tavoli del tuo ristorante.</li>
-                <li><strong>Gestisci lo Staff:</strong> Aggiungi il tuo personale e assegna i ruoli appropriati.</li>
-                <li><strong>Inizia con gli Ordini:</strong> Usa il sistema POS per iniziare a prendere ordini.</li>
-                <li><strong>Monitora le Prestazioni:</strong> Utilizza la sezione Reportistica per analizzare le performance del tuo ristorante.</li>
-            </ol>
-        </div>
-
-        <div class="ristopos-support">
-            <h2>Hai Bisogno di Aiuto?</h2>
-            <p>Se hai domande o hai bisogno di assistenza, non esitare a contattare il nostro team di supporto.</p>
-            <a href="#" class="button button-secondary">Contatta il Supporto</a>
-        </div>
-    </div>
-    <?php
-}
-
-
-function ristopos_products_page() {
-    require_once plugin_dir_path(__FILE__) . 'admin/ristopos-products.php';
-}
-
-function ristopos_orders_page() {
-    require_once plugin_dir_path(__FILE__) . 'admin/ristopos-orders.php';
-}
-
-function ristopos_tables_page() {
-    require_once plugin_dir_path(__FILE__) . 'admin/ristopos-tables.php';
-}
-
-function ristopos_product_management_page() {
-    require_once plugin_dir_path(__FILE__) . 'admin/ristopos-product-management.php';
-}
 
 require_once plugin_dir_path(__FILE__) . 'admin/ristopos-analytics.php';
 
@@ -294,28 +132,14 @@ require_once plugin_dir_path(__FILE__) . 'admin/ristopos-messaging.php';
 
 require_once plugin_dir_path(__FILE__) . 'admin/ristopos-navigation.php';
 
-
-// Inizializza il plugin
-function ristopos_init() {
-    if (ristopos_check_woocommerce()) {
-        add_action('admin_menu', 'ristopos_add_menu');
-    } else {
-        add_action('admin_notices', 'ristopos_woocommerce_missing_notice');
-    }
-}
-
-//modifica orario
-function ristopos_set_timezone() {
-    date_default_timezone_set('Europe/Rome');
-}
-add_action('init', 'ristopos_set_timezone');
-
-function get_table_status_text($status) {
+function get_table_status_text($status)
+{
     return $status === 'occupied' ? 'Occupato' : 'Libero';
 }
 
 //crea ordine
-function ristopos_create_order() {
+function ristopos_create_order()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
 
     if (!current_user_can('manage_options')) {
@@ -338,7 +162,7 @@ function ristopos_create_order() {
     foreach ($cart as $item) {
         $product = wc_get_product($item['id']);
         $order_item_id = $order->add_product($product, $item['quantity']);
-        
+
         if (!empty($item['notes'])) {
             wc_add_order_item_meta($order_item_id, 'Note', sanitize_textarea_field($item['notes']));
         }
@@ -372,29 +196,30 @@ function ristopos_create_order() {
 add_action('wp_ajax_ristopos_create_order', 'ristopos_create_order');
 
 // Funzione per aggiungere un tavolo
-function ristopos_add_table_ajax() {
+function ristopos_add_table_ajax()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
-    
+
     if (!current_user_can('manage_options')) {
         wp_send_json_error(array('message' => 'Permessi insufficienti'));
         return;
     }
 
     $tables = get_option('ristopos_tables', array());
-    
+
     $new_table_id = 1;
     while (isset($tables[$new_table_id])) {
         $new_table_id++;
     }
-    
+
     $tables[$new_table_id] = array(
         'status' => 'free',
         'total' => 0,
         'orders' => array()
     );
-    
+
     update_option('ristopos_tables', $tables);
-    
+
     wp_send_json_success(array(
         'message' => 'Tavolo aggiunto con successo',
         'table_id' => $new_table_id,
@@ -404,7 +229,8 @@ function ristopos_add_table_ajax() {
 add_action('wp_ajax_ristopos_add_table', 'ristopos_add_table_ajax');
 
 // Funzione per eliminare un tavolo
-function ristopos_delete_table_ajax() {
+function ristopos_delete_table_ajax()
+{
     error_log('ristopos_delete_table_ajax called');
     error_log(print_r($_POST, true));
 
@@ -426,7 +252,8 @@ function ristopos_delete_table_ajax() {
 add_action('wp_ajax_ristopos_delete_table', 'ristopos_delete_table_ajax');
 
 // Funzione per svuotare un tavolo
-function ristopos_clear_table_ajax() {
+function ristopos_clear_table_ajax()
+{
     error_log('ristopos_clear_table_ajax called');
     error_log(print_r($_POST, true));
 
@@ -450,29 +277,30 @@ function ristopos_clear_table_ajax() {
 add_action('wp_ajax_ristopos_clear_table', 'ristopos_clear_table_ajax');
 
 // Funzione per recuperare i dettagli di un tavolo
-function ristopos_get_table_details_ajax() {
+function ristopos_get_table_details_ajax()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
     $table_id = $_POST['table_id'];
     $tables = get_option('ristopos_tables', array());
-    
+
     if (isset($tables[$table_id])) {
         $table = $tables[$table_id];
         $orders_details = array();
-        
+
         foreach ($table['orders'] as $order_id) {
             $order = wc_get_order($order_id);
             if ($order) {
                 $user_id = $order->get_customer_id();
                 $user = get_user_by('id', $user_id);
                 $waiter_name = $user ? $user->user_login : 'N/A';
-                
+
                 $order_details = array(
                     'order_id' => $order_id,
                     'waiter' => $waiter_name,
                     'date' => $order->get_date_created()->date_i18n('Y-m-d H:i:s'),
                     'products' => array()
                 );
-                
+
                 foreach ($order->get_items() as $item) {
                     $product = array(
                         'name' => $item->get_name(),
@@ -481,11 +309,11 @@ function ristopos_get_table_details_ajax() {
                     );
                     $order_details['products'][] = $product;
                 }
-                
+
                 $orders_details[] = $order_details;
             }
         }
-        
+
         wp_send_json_success(array('orders' => $orders_details));
     } else {
         wp_send_json_error(array('message' => 'Tavolo non trovato'));
@@ -494,7 +322,8 @@ function ristopos_get_table_details_ajax() {
 add_action('wp_ajax_ristopos_get_table_details', 'ristopos_get_table_details_ajax');
 
 // Funzione per recuperare i dati dei prodotti
-function ristopos_get_products() {
+function ristopos_get_products()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
     $products = wc_get_products(array('limit' => -1));
     $product_list = array();
@@ -514,9 +343,10 @@ function ristopos_get_products() {
 add_action('wp_ajax_ristopos_get_products', 'ristopos_get_products');
 
 // Funzione per aggiungere un prodotto
-function ristopos_add_product() {
+function ristopos_add_product()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
-    
+
     if (!current_user_can('manage_options')) {
         wp_send_json_error('Permessi insufficienti');
     }
@@ -557,9 +387,10 @@ function ristopos_add_product() {
 add_action('wp_ajax_ristopos_add_product', 'ristopos_add_product');
 
 // Funzione per modificare un prodotto
-function ristopos_update_product() {
+function ristopos_update_product()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
-    
+
     if (!current_user_can('manage_options')) {
         wp_send_json_error('Permessi insufficienti');
     }
@@ -606,9 +437,10 @@ function ristopos_update_product() {
 add_action('wp_ajax_ristopos_update_product', 'ristopos_update_product');
 
 // Funzione per eliminare un prodotto
-function ristopos_ajax_delete_product() {
+function ristopos_ajax_delete_product()
+{
     check_ajax_referer('ristopos-nonce', 'nonce');
-    
+
     if (!current_user_can('manage_options')) {
         wp_send_json_error('Permessi insufficienti');
     }
@@ -630,9 +462,11 @@ function ristopos_ajax_delete_product() {
         wp_send_json_error('Errore nell\'eliminazione del prodotto');
     }
 }
+
 add_action('wp_ajax_ristopos_delete_product', 'ristopos_ajax_delete_product');
 
-function ristopos_create_custom_roles() {
+function ristopos_create_custom_roles()
+{
     // Rimuovi i ruoli esistenti per evitare conflitti
     remove_role('waiter');
     remove_role('chef');
@@ -675,20 +509,9 @@ function ristopos_create_custom_roles() {
     $admin->add_cap('view_reports');
 }
 
-// Esegui questa funzione all'attivazione del plugin e quando il plugin viene aggiornato
-register_activation_hook(__FILE__, 'ristopos_create_custom_roles');
-add_action('plugins_loaded', 'ristopos_create_custom_roles');
-
-
-function ristopos_plugin_activation() {
-    ristopos_create_custom_roles();
-    flush_rewrite_rules();
-}
-
-register_activation_hook(__FILE__, 'ristopos_plugin_activation');
-
 // Funzione per recuperare i dati di vendita
-function ristopos_enqueue_chartjs($hook) {
+function ristopos_enqueue_chartjs($hook)
+{
     if ('ristopos_page_ristopos-analytics' !== $hook) {
         return;
     }
@@ -699,13 +522,14 @@ function ristopos_enqueue_chartjs($hook) {
 add_action('admin_enqueue_scripts', 'ristopos_enqueue_chartjs');
 
 // Funzione per inviare un messaggio
-function ristopos_enqueue_messaging_assets($hook) {
+function ristopos_enqueue_messaging_assets($hook)
+{
     if ('ristopos_page_ristopos-messaging' !== $hook) {
         return;
     }
     wp_enqueue_style('ristopos-messaging', plugin_dir_url(__FILE__) . 'admin/css/ristopos-messaging.css', array(), '1.0.0');
     wp_enqueue_script('ristopos-messaging', plugin_dir_url(__FILE__) . 'admin/js/ristopos-messaging.js', array('jquery'), '1.0.0', true);
-    
+
     $script_data = array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'security' => wp_create_nonce('ristopos_send_message')
@@ -718,12 +542,14 @@ function ristopos_enqueue_messaging_assets($hook) {
 add_action('admin_enqueue_scripts', 'ristopos_enqueue_messaging_assets');
 
 
-function ristopos_activate_plugin() {
+function ristopos_activate_plugin()
+{
     ristopos_create_messages_table();
 }
 register_activation_hook(__FILE__, 'ristopos_activate_plugin');
 
-function ristopos_enqueue_scripts($hook) {
+function ristopos_enqueue_scripts($hook)
+{
     // Carica gli script solo nelle pagine del plugin
     if (strpos($hook, 'ristopos') === false) {
         return;
@@ -738,10 +564,10 @@ function ristopos_enqueue_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'ristopos_enqueue_scripts');
 
-add_action('admin_footer', function() {
+add_action('admin_footer', function () {
     if (isset($_GET['page']) && $_GET['page'] === 'ristopos-messaging') {
         echo "<script>console.log('Admin footer reached for ristopos-messaging page');</script>";
-        
+
         global $wp_scripts;
         $loaded_scripts = array();
         foreach ($wp_scripts->queue as $handle) {
@@ -752,7 +578,8 @@ add_action('admin_footer', function() {
 });
 
 // Aggiungi questa funzione nel tuo file principale ristopos.php
-function ristopos_add_custom_roles_and_capabilities() {
+function ristopos_add_custom_roles_and_capabilities()
+{
     // Rimuovi i ruoli esistenti per evitare conflitti
     remove_role('waiter');
     remove_role('chef');
@@ -798,33 +625,10 @@ function ristopos_add_custom_roles_and_capabilities() {
     $admin->add_cap('view_reports');
 }
 
-function ristopos_redirect_custom_roles() {
-    $user = wp_get_current_user();
-    $custom_roles = array('restaurant_manager', 'chef', 'waiter');
-
-    if (array_intersect($custom_roles, $user->roles) && is_admin()) {
-        $screen = get_current_screen();
-        if ($screen->id === 'dashboard') {
-            wp_redirect(admin_url('admin.php?page=ristopos'));
-            exit;
-        }
-    }
-}
-add_action('current_screen', 'ristopos_redirect_custom_roles');
-
-function ristopos_check_admin_access() {
-    $user = wp_get_current_user();
-    $allowed_roles = array('administrator', 'restaurant_manager', 'chef', 'waiter');
-
-    if (!array_intersect($allowed_roles, $user->roles)) {
-        wp_redirect(home_url());
-        exit;
-    }
-}
-add_action('admin_init', 'ristopos_check_admin_access');
 
 
-function ristopos_welcome_message() {
+function ristopos_welcome_message()
+{
     $user = wp_get_current_user();
     $custom_roles = array('waiter', 'chef', 'restaurant_manager');
 
@@ -837,33 +641,10 @@ function ristopos_welcome_message() {
 }
 add_action('admin_notices', 'ristopos_welcome_message');
 
-remove_action('admin_init', 'ristopos_check_admin_access');
-remove_action('current_screen', 'ristopos_redirect_custom_roles');
-
 /* ---------------- FUNZIONI PER GESTIRE CREAZIONE ORDINE SU APP MOBILE -------------------------*/
 
-add_action('rest_api_init', function () {
-    register_rest_route('ristopos/v1', '/tables', array(
-        'methods' => 'GET',
-        'callback' => function() {
-            $tables = get_option('ristopos_tables', array());
-            error_log('Fetching tables: ' . print_r($tables, true));
-            return new WP_REST_Response($tables, 200);
-        },
-        'permission_callback' => '__return_true'
-    ));
-});
-
-// Register REST API endpoint for updating table after order
-add_action('rest_api_init', function () {
-    register_rest_route('ristopos/v1', '/update-table', array(
-        'methods' => 'POST',
-        'callback' => 'update_table_after_order',
-        'permission_callback' => '__return_true', // Permetti l'accesso
-    ));
-});
-
-function update_table_after_order($request) {
+function update_table_after_order($request)
+{
     $table_id = $request->get_param('table_id');
     $order_id = $request->get_param('order_id');
     $order_total = $request->get_param('order_total');
@@ -897,10 +678,11 @@ function update_table_after_order($request) {
 
 /* ----------- ------------ ------------ ---------- ---------- ----------- ------------- ----------------- */
 
-function ristopos_customize_admin_for_custom_roles() {
+function ristopos_customize_admin_for_custom_roles()
+{
     $user = wp_get_current_user();
     $allowed_roles = array('waiter', 'chef', 'restaurant_manager');
-    
+
     if (array_intersect($allowed_roles, $user->roles)) {
         // Rimuovi tutti i menu predefiniti
         remove_menu_page('index.php');                  // Dashboard
@@ -913,10 +695,10 @@ function ristopos_customize_admin_for_custom_roles() {
         remove_menu_page('users.php');                  // Users
         remove_menu_page('tools.php');                  // Tools
         remove_menu_page('options-general.php');        // Settings
-        
+
         // Nascondi la barra di amministrazione frontend
         add_filter('show_admin_bar', '__return_false');
-        
+
         // Aggiungi stili CSS per nascondere elementi non necessari
         add_action('admin_head', 'ristopos_custom_admin_styles');
     }
@@ -929,5 +711,268 @@ register_activation_hook(__FILE__, 'ristopos_add_custom_roles_and_capabilities')
 // Esegui questa funzione anche quando il plugin viene aggiornato
 add_action('plugins_loaded', 'ristopos_add_custom_roles_and_capabilities');
 
-// Aggancia l'inizializzazione del plugin all'azione 'plugins_loaded'
-add_action('plugins_loaded', 'ristopos_init');
+/**
+ * The main plugin class.
+ *
+ * @since 0.1.1
+ */
+final class RistoPos
+{
+    /**
+     * Holds various class instances.
+     *
+     * @var array
+     *
+     * @since 0.1.0
+     */
+    private $container = [];
+
+    /**
+     * Constructor for the JobPlace class.
+     *
+     * Sets up all the appropriate hooks and actions within our plugin.
+     *
+     * @since 0.1.0
+     */
+    private function __construct()
+    {
+        require_once __DIR__ . '/vendor/autoload.php';
+
+        $this->define_constants();
+
+        register_activation_hook(__FILE__, [$this, 'activate']);
+        register_deactivation_hook(__FILE__, [$this, 'deactivate']);
+
+        add_action('wp_loaded', [$this, 'flushRewriteRules']);
+        $this->initPlugin();
+    }
+
+    /**
+     * Magic getter to bypass referencing plugin.
+     *
+     * @since 0.1.0
+     *
+     * @param $prop
+     *
+     * @return mixed
+     */
+    public function __get($prop)
+    {
+        if (array_key_exists($prop, $this->container)) {
+            return $this->container[$prop];
+        }
+
+        return $this->{$prop};
+    }
+
+    /**
+     * Magic isset to bypass referencing plugin.
+     *
+     * @since 0.1.0
+     *
+     * @param $prop
+     *
+     * @return mixed
+     */
+    public function __isset($prop)
+    {
+        return isset($this->{$prop}) || isset($this->container[$prop]);
+    }
+
+
+    /**
+     * Activating the plugin.
+     *
+     * @return void
+     */
+    public function activate()
+    {
+        ristopos_create_custom_roles();
+    }
+
+    /**
+     * Placeholder for deactivation function.
+     *
+     * @return void
+     */
+    public function deactivate()
+    {
+        //
+    }
+
+    /**
+     * Initializes the Wp_React_Kit() class.
+     *
+     * Checks for an existing Wp_React_Kit() instance
+     * and if it doesn't find one, creates it.
+     *
+     * @return RistoPos|bool
+     */
+    public static function init()
+    {
+        static $instance = false;
+
+        if (!$instance) {
+            $instance = new RistoPos();
+        }
+
+        return $instance;
+    }
+
+    /**
+     * Define the constants.
+     *
+     * @since 0.1.0
+     *
+     * @return void
+     */
+    public function define_constants()
+    {
+        define('RISTOPOS_VERSION', '0.1.0');
+        define('RISTOPOS_SLUG', 'ristopos');
+        define('RISTOPOS_FILE', __FILE__);
+        define('RISTOPOS_DIR', __DIR__);
+        define('RISTOPOS_PATH', dirname(RISTOPOS_FILE));
+        define('RISTOPOS_INCLUDES', RISTOPOS_PATH . '/includes');
+        define('RISTOPOS_TEMPLATE_PATH', RISTOPOS_PATH . '/templates');
+        define('RISTOPOS_URL', plugins_url('', RISTOPOS_FILE));
+        define('RISTOPOS_BUILD', RISTOPOS_URL . '/build');
+        define('RISTOPOS_ASSETS', RISTOPOS_URL . '/assets');
+    }
+
+    /**
+     * Load the plugin after all plugins are loaded.
+     *
+     * @since 0.1.0
+     *
+     * @return void
+     */
+    public function initPlugin()
+    {
+        $this->includes();
+        $this->initHooks();
+
+        /**
+         * Fires after the plugin is loaded.
+         *
+         * @since 0.1.0
+         */
+        do_action('ristopos_loaded');
+    }
+
+    /**
+     * Include the required files.
+     *
+     * @since 0.1.0
+     *
+     * @return void
+     */
+    public function includes()
+    {
+        if ($this->isRequest('admin')) {
+            $this->container['admin_menu'] = new Squartup\RistoPos\Admin\Menu();
+        }
+
+        $this->container['assets'] = new Squartup\RistoPos\Assets();
+        $this->container['products'] = new Squartup\RistoPos\Product\Manager();
+    }
+
+
+    /**
+     * What type of request is this.
+     *
+     * @since 0.1.0
+     *
+     * @param string $type admin, ajax, cron or frontend
+     *
+     * @return bool
+     */
+    private function isRequest($type)
+    {
+        switch ($type) {
+            case 'admin':
+                return is_admin();
+
+            case 'ajax':
+                return defined('DOING_AJAX');
+
+            case 'rest':
+                return defined('REST_REQUEST');
+
+            case 'cron':
+                return defined('DOING_CRON');
+
+            case 'frontend':
+                return (!is_admin() || defined('DOING_AJAX')) && !defined('DOING_CRON');
+        }
+    }
+
+    /**
+     * Initialize the hooks.
+     *
+     * @since 0.1.0
+     *
+     * @return void
+     */
+    public function initHooks()
+    {
+        add_action('plugins_loaded', function () {
+            if (!ristopos_check_woocommerce()) {
+                add_action('admin_notices', 'ristopos_woocommerce_missing_notice');
+                return;
+            }
+        });
+
+        add_action('plugins_loaded', 'ristopos_create_custom_roles');
+
+        // Init classes
+        add_action('init', [$this, 'init_classes']);
+
+
+        // Localize our plugin
+        // add_action( 'init', [ $this, 'localization_setup' ] );
+
+        // Add the plugin page links
+        // add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_action_links' ] );
+    }
+
+
+    /**
+     * Instantiate the required classes.
+     *
+     * @since 0.1.0
+     *
+     * @return void
+     */
+    public function init_classes()
+    {
+        // Init necessary hooks.
+        new Squartup\RistoPos\Hooks();
+        new Squartup\RistoPos\Redirects\Hooks();
+    }
+
+    /**
+     * Flush rewrite rules after plugin is activated.
+     *
+     * @since 0.1.0
+     */
+    public function flushRewriteRules()
+    {
+        // fix rewrite rules.
+    }
+}
+
+/**
+ * Initialize the main plugin.
+ *
+ * @return \RistoPos|bool
+ */
+function ristopos()
+{
+    return RistoPos::init();
+}
+
+/*
+ * Kick-off the plugin.
+ */
+ristopos();

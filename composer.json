@@ -1,0 +1,51 @@
+{
+    "version": "0.1.0",
+    "name": "squartup/ristopos",
+    "description": "Restaurant management makes it easier ever.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "ManiruzzamanAkash",
+            "email": "manirujjamanakash@gmail.com"
+        },
+        {
+            "name": "Giuseppe Napoli",
+            "email": "info@giuseppenapoli.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Squartup\\RistoPos\\": "includes/"
+        }
+    },
+    "scripts": {
+        "phpcs": [
+            "phpcs -p -s"
+        ],
+        "phpcbf": [
+            "phpcbf -p"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
+        ],
+        "test:all": [
+            "phpcs -p -s & vendor/bin/phpunit"
+        ]
+    },
+    "require": {
+        "php": ">=7.4|8.0"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.1",
+        "phpunit/phpunit": "^11.5",
+        "wp-phpunit/wp-phpunit": "^6.7",
+        "yoast/phpunit-polyfills": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
