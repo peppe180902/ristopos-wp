@@ -137,6 +137,27 @@ function get_table_status_text($status)
     return $status === 'occupied' ? 'Occupato' : 'Libero';
 }
 
+// Registra un endpoint personalizzato per i tavoli
+function ristopos_get_tables() {
+    $tables = get_option('ristopos_tables', array());
+    return $tables;
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route('ristopos/v1', '/tables', array(
+        'methods' => 'GET',
+        'callback' => 'ristopos_get_tables_api',
+        'permission_callback' => function () {
+            return current_user_can('edit_posts');
+        }
+    ));
+});
+
+function ristopos_get_tables_api() {
+    $tables = ristopos_get_tables();
+    return new WP_REST_Response($tables, 200);
+}
+
 //crea ordine
 function ristopos_create_order()
 {
@@ -642,6 +663,7 @@ function ristopos_welcome_message()
 add_action('admin_notices', 'ristopos_welcome_message');
 
 /* ---------------- FUNZIONI PER GESTIRE CREAZIONE ORDINE SU APP MOBILE -------------------------*/
+
 
 function update_table_after_order($request)
 {
