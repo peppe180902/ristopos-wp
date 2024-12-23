@@ -1,0 +1,363 @@
+# Copyright (c) 2024 Squartup. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: RistoPOS 0.1.1\n"
+"Report-Msgid-Bugs-To: https://github.dev/peppe180902/ristopos-wp/issues\n"
+"Last-Translator: info@squartup.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-23T15:50:31+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: ristopos\n"
+
+#. Plugin Name of the plugin
+#: ristopos.php
+#: includes/Admin/Menu.php:39
+msgid "RistoPOS"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: ristopos.php
+msgid "http://wordpress.org/plugins/ristopos/"
+msgstr ""
+
+#. Description of the plugin
+#: ristopos.php
+msgid "Restaurant Management System for WooCommerce, with POS, table management, staff management, and advanced analytics."
+msgstr ""
+
+#. Author of the plugin
+#: ristopos.php
+msgid "Squartup"
+msgstr ""
+
+#. Author URI of the plugin
+#: ristopos.php
+msgid "https://squartup.com"
+msgstr ""
+
+#: admin/ristopos-analytics.php:90
+#: admin/ristopos-analytics.php:288
+msgid "Total Sales"
+msgstr ""
+
+#: admin/ristopos-analytics.php:94
+msgid "Total Orders"
+msgstr ""
+
+#: admin/ristopos-analytics.php:98
+msgid "Average Order Value"
+msgstr ""
+
+#: admin/ristopos-analytics.php:169
+msgid "Best Selling Products"
+msgstr ""
+
+#: admin/ristopos-analytics.php:173
+msgid "Sales by Day"
+msgstr ""
+
+#: admin/ristopos-analytics.php:259
+msgid "Units Sold"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:9
+#: admin/ristopos-staff-management.php:57
+#: admin/ristopos-staff-management.php:91
+#: templates/admin/staff-management.php:9
+#: templates/admin/staff-management.php:57
+#: templates/admin/staff-management.php:91
+msgid "Non hai i permessi per eseguire questa azione."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:101
+#: templates/admin/staff-management.php:101
+msgid "Si è verificato un errore durante l'eliminazione del membro dello staff."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:111
+#: templates/admin/staff-management.php:111
+msgid "Membro dello staff aggiunto con successo."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:114
+#: templates/admin/staff-management.php:114
+msgid "Membro dello staff aggiornato con successo."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:117
+#: templates/admin/staff-management.php:117
+msgid "Membro dello staff eliminato con successo."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:132
+#: templates/admin/staff-management.php:132
+msgid "Modifica Membro dello Staff"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:132
+#: templates/admin/staff-management.php:132
+msgid "Aggiungi Nuovo Membro dello Staff"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:141
+#: templates/admin/staff-management.php:141
+msgid "Username"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:151
+#: templates/admin/staff-management.php:151
+msgid "Email"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:155
+#: templates/admin/staff-management.php:155
+msgid "Nome"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:159
+#: templates/admin/staff-management.php:159
+msgid "Cognome"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:163
+#: templates/admin/staff-management.php:163
+msgid "Ruolo"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:166
+#: templates/admin/staff-management.php:166
+msgid "Cameriere"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:167
+#: templates/admin/staff-management.php:167
+msgid "Chef"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:168
+#: templates/admin/staff-management.php:168
+msgid "Manager"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:174
+#: templates/admin/staff-management.php:174
+msgid "Password"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:177
+#: templates/admin/staff-management.php:177
+msgid "La password deve essere forte. Usa lettere maiuscole e minuscole, numeri e simboli."
+msgstr ""
+
+#: admin/ristopos-staff-management.php:183
+#: templates/admin/staff-management.php:183
+msgid "Aggiorna Membro"
+msgstr ""
+
+#: admin/ristopos-staff-management.php:183
+#: templates/admin/staff-management.php:183
+msgid "Aggiungi Membro"
+msgstr ""
+
+#: includes/Admin/Menu.php:42
+msgid "Home"
+msgstr ""
+
+#: includes/Admin/Menu.php:136
+msgid "Non hai il permesso di accedere a questa pagina."
+msgstr ""
+
+#: ristopos.php:38
+msgid "RistoPOS richiede che WooCommerce sia installato e attivo."
+msgstr ""
+
+#: templates/admin/products.php:29
+msgid "Select a table"
+msgstr ""
+
+#: templates/admin/products.php:30
+msgid "No table selected"
+msgstr ""
+
+#: templates/admin/products.php:38
+msgid "Occupied"
+msgstr ""
+
+#: templates/admin/products.php:38
+msgid "Free"
+msgstr ""
+
+#: templates/admin/products.php:43
+msgid "€"
+msgstr ""
+
+#: templates/admin/products.php:52
+#: templates/admin/products.php:65
+msgid "Restaurant Products"
+msgstr ""
+
+#: templates/admin/products.php:57
+msgid "All categories"
+msgstr ""
+
+#: templates/admin/products.php:82
+msgid "Add to order"
+msgstr ""
+
+#: templates/admin/products.php:90
+#: templates/admin/products.php:100
+msgid "Cart"
+msgstr ""
+
+#: templates/admin/products.php:92
+#: templates/admin/products.php:102
+msgid "Complete order"
+msgstr ""
+
+#: templates/app.php:2
+msgid "Loading"
+msgstr ""
+
+#: build/index.js:303
+msgid "Welcome to RistoPOS - Complete Management for Your Restaurant"
+msgstr ""
+
+#: build/index.js:308
+msgid "RistoPOS is the integrated solution for efficient management of your restaurant. From order management to advanced reporting, RistoPOS offers all the tools you need to optimize your operations."
+msgstr ""
+
+#: build/index.js:314
+msgid "Main Features"
+msgstr ""
+
+#: build/index.js:323
+msgid "Order Management"
+msgstr ""
+
+#: build/index.js:325
+msgid "Easily manage ongoing orders and access the complete history. Optimize the workflow from the kitchen to the dining room."
+msgstr ""
+
+#: build/index.js:330
+msgid "Manage Orders"
+msgstr ""
+
+#: build/index.js:338
+msgid "Table Management"
+msgstr ""
+
+#: build/index.js:340
+msgid "Organize and assign tables efficiently. Monitor the status of each table in real-time."
+msgstr ""
+
+#: build/index.js:345
+msgid "Manage Tables"
+msgstr ""
+
+#: build/index.js:353
+msgid "Product Management"
+msgstr ""
+
+#: build/index.js:355
+msgid "Add, edit, and delete products with ease. Manage your menu dynamically."
+msgstr ""
+
+#: build/index.js:360
+msgid "Manage Products"
+msgstr ""
+
+#: build/index.js:368
+msgid "POS System"
+msgstr ""
+
+#: build/index.js:370
+msgid "Manage table transactions with our intuitive and fast POS system."
+msgstr ""
+
+#: build/index.js:375
+msgid "Open POS"
+msgstr ""
+
+#: build/index.js:383
+msgid "Advanced Reporting"
+msgstr ""
+
+#: build/index.js:385
+msgid "Analyze your restaurant's performance with detailed reports and valuable insights."
+msgstr ""
+
+#: build/index.js:390
+msgid "View Reports"
+msgstr ""
+
+#: build/index.js:398
+msgid "Staff Management"
+msgstr ""
+
+#: build/index.js:400
+msgid "Efficiently manage your staff, assign roles, and monitor performance."
+msgstr ""
+
+#: build/index.js:405
+msgid "Manage Staff"
+msgstr ""
+
+#: build/index.js:413
+msgid "Quick Start Guide"
+msgstr ""
+
+#: build/index.js:418
+msgid "Configure Products:"
+msgstr ""
+
+#: build/index.js:419
+msgid "Start by adding your products in the Product Management section."
+msgstr ""
+
+#: build/index.js:422
+msgid "Set Up Tables:"
+msgstr ""
+
+#: build/index.js:423
+msgid "Configure the layout of your restaurant's tables."
+msgstr ""
+
+#: build/index.js:426
+msgid "Manage Staff:"
+msgstr ""
+
+#: build/index.js:427
+msgid "Add your staff and assign appropriate roles."
+msgstr ""
+
+#: build/index.js:430
+msgid "Start Taking Orders:"
+msgstr ""
+
+#: build/index.js:431
+msgid "Use the POS system to start taking orders."
+msgstr ""
+
+#: build/index.js:434
+msgid "Monitor Performance:"
+msgstr ""
+
+#: build/index.js:435
+msgid "Use the Reporting section to analyze your restaurant's performance."
+msgstr ""
+
+#: build/index.js:442
+msgid "Need Help?"
+msgstr ""
+
+#: build/index.js:445
+msgid "If you have any questions or need assistance, do not hesitate to contact our support team."
+msgstr ""
+
+#: build/index.js:450
+msgid "Contact Support"
+msgstr ""

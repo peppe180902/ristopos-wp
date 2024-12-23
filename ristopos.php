@@ -138,7 +138,8 @@ function get_table_status_text($status)
 }
 
 // Registra un endpoint personalizzato per i tavoli
-function ristopos_get_tables() {
+function ristopos_get_tables()
+{
     $tables = get_option('ristopos_tables', array());
     return $tables;
 }
@@ -153,7 +154,8 @@ add_action('rest_api_init', function () {
     ));
 });
 
-function ristopos_get_tables_api() {
+function ristopos_get_tables_api()
+{
     $tables = ristopos_get_tables();
     return new WP_REST_Response($tables, 200);
 }
@@ -883,6 +885,24 @@ final class RistoPos
     }
 
     /**
+     * Initialize plugin for localization.
+     *
+     * @uses load_plugin_textdomain()
+     *
+     * @return void
+     */
+    public function localization_setup()
+    {
+        load_plugin_textdomain('ristopos', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+
+        // Load the React-pages translations.
+        if (is_admin()) {
+            // Load wp-script translation for ristopos-app
+            wp_set_script_translations('ristopos-app', 'ristopos', plugin_dir_path(__FILE__) . 'languages/');
+        }
+    }
+
+    /**
      * Include the required files.
      *
      * @since 0.1.0
@@ -952,7 +972,7 @@ final class RistoPos
 
 
         // Localize our plugin
-        // add_action( 'init', [ $this, 'localization_setup' ] );
+        add_action('init', [$this, 'localization_setup']);
 
         // Add the plugin page links
         // add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'plugin_action_links' ] );

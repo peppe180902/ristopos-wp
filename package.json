@@ -13,6 +13,7 @@
     "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
+    "makepot": "wp i18n make-pot --domain='ristopos' --exclude='node_modules,.storybook,vendor,assets' . --headers='{\"Last-Translator\":\"info@squartup.com\",\"Report-Msgid-Bugs-To\":\"https://github.dev/peppe180902/ristopos-wp/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') Squartup. All Rights Reserved.\" languages/ristopos.pot",
     "plugin-zip": "wp-scripts plugin-zip",
     "start": "wp-scripts start",
     "test:e2e": "wp-scripts test-e2e",
