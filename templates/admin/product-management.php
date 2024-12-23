@@ -1,208 +1,270 @@
 <?php
-if (!defined('ABSPATH')) {
-    exit; // Uscita se accesso diretto
-}
-
 function ristopos_display_product_management() {
     do_action('ristopos_before_page_content');
     
+    // Main container with modern layout
     echo '<div class="wrap ristopos-product-management">';
-    echo '<h1 id="title-page" >Gestione Prodotti RistoPOS</h1>';
+    echo '<header class="ristopos-header">';
+    echo '<h1 class="page-title">' . esc_html__('RistoPOS Product Management', 'ristopos') . '</h1>';
+    echo '</header>';
     
-    echo '<div id="add-product-form" class="ristopos-form">';
-    echo '<h2>Aggiungi Nuovo Prodotto</h2>';
-    echo '<form id="ristopos-add-product-form">';
-    echo '<input type="text" name="product_name" placeholder="Nome Prodotto" required>';
-    echo '<input type="number" step="0.01" name="product_price" placeholder="Prezzo" required>';
-    echo '<label for="product_category">Seleziona Categoria/e:</label>';
-    echo '<select name="product_category[]" id="product_category" multiple>';
+    // Product form with improved styling 
+    echo '<div class="ristopos-card ristopos-form">';
+    echo '<div class="card-header">';
+    echo '<h2>' . esc_html__('Add New Product', 'ristopos') . '</h2>';
+    echo '</div>';
+    
+    echo '<form id="ristopos-add-product-form" class="product-form">';
+    echo '<div class="form-group">';
+    echo '<label for="product_name">' . esc_html__('Product Name', 'ristopos') . '</label>';
+    echo '<input type="text" id="product_name" name="product_name" required>';
+    echo '</div>';
+
+    echo '<div class="form-group">'; 
+    echo '<label for="product_price">' . esc_html__('Price', 'ristopos') . '</label>';
+    echo '<input type="number" id="product_price" step="0.01" name="product_price" required>';
+    echo '</div>';
+
+    echo '<div class="form-group">';
+    echo '<label for="product_category">' . esc_html__('Categories', 'ristopos') . '</label>';
+    echo '<select name="product_category[]" id="product_category" multiple class="category-select">';
     $categories = get_terms('product_cat', array('hide_empty' => false));
     foreach ($categories as $category) {
-        echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
+        echo '<option value="' . esc_attr($category->term_id) . '">' . esc_html($category->name) . '</option>';
     }
     echo '</select>';
-    echo '<input type="file" name="product_image">';
-    echo '<button type="submit" class="button button-primary">Aggiungi Prodotto</button>';
+    echo '</div>';
+
+    echo '<div class="form-group">';
+    echo '<label for="product_image" class="file-upload-label">';
+    echo '<span class="dashicons dashicons-upload"></span> ' . esc_html__('Upload Image', 'ristopos');
+    echo '</label>';
+    echo '<input type="file" id="product_image" name="product_image" class="file-upload-input">';
+    echo '</div>';
+
+    echo '<button type="submit" class="button button-primary submit-button">';
+    echo '<span class="dashicons dashicons-plus-alt"></span> ';
+    echo esc_html__('Add Product', 'ristopos');
+    echo '</button>';
     echo '</form>';
     echo '</div>';
 
-    echo '<div id="product-list">';
-    // Il contenuto della lista prodotti sarà caricato via AJAX
+    // Products grid
+    echo '<div id="product-list" class="products-grid">';
     echo '</div>';
 
-    echo '<div id="edit-product-modal" class="ristopos-modal">';
-    echo '<div class="ristopos-modal-content">';
-    echo '<span class="ristopos-modal-close">&times;</span>';
-    echo '<h2>Modifica Prodotto</h2>';
-    echo '<form id="ristopos-edit-product-form">';
-    echo '<input type="hidden" name="product_id">';
-    echo '<input type="text" name="product_name" placeholder="Nome Prodotto" required>';
-    echo '<input type="number" step="0.01" name="product_price" placeholder="Prezzo" required>';
-    echo '<select name="product_category[]" multiple>';
-    foreach ($categories as $category) {
-        echo '<option value="' . $category->term_id . '">' . $category->name . '</option>';
-    }
-    echo '</select>';
-    echo '<input type="file" name="product_image">';
-    echo '<button type="submit" class="button button-primary">Aggiorna Prodotto</button>';
-    echo '</form>';
-    echo '<div id="loader" class="loader" style="display: none;"></div>';
+    // Modal styling improved
+    echo '<div id="edit-product-modal" class="ristopos-modal">'; 
+    echo '<div class="modal-content">';
+    echo '<header class="modal-header">';
+    echo '<h2>' . esc_html__('Edit Product', 'ristopos') . '</h2>';
+    echo '<button class="modal-close">&times;</button>';
+    echo '</header>';
+
+    // Modal form with same styling as add form
+    echo '<form id="ristopos-edit-product-form" class="product-form">...</form>';
     echo '</div>';
     echo '</div>';
 
     echo '</div>';
 }
 
+// Add modern styles
 function ristopos_product_management_styles() {
     echo '
     <style>
-    .div-button-product {
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .delete-product {
-        background-color: #dc3545;
-        color: white;
-        margin-left: 5px;
-    }
-
-    .delete-product:hover {
-        background-color: #c82333;
-    }
-    .loader {
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #3498db;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-        margin: 20px auto;
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    label[for="product_category"] {
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-    .wrap {
-        margin: 10px 20px 0 20px;
-    }
-    .ristopos-div-button {
-        display: flex;
-        gap: 5px;
-    }
-        .ristopos-header {
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    
-        .ristopos-button {
-            background-color: #0073aa;
-            color: white;
-            padding: 8px 12px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
     .ristopos-product-management {
-        margin-top: 20px;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
-    .ristopos-form {
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
+
+    .ristopos-header {
+        margin-bottom: 2rem;
     }
-    .ristopos-form input, .ristopos-form select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
+
+    .page-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #1e1e1e;
+    }
+
+    .ristopos-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .card-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .product-form {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #1e1e1e;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.75rem;
         border: 1px solid #ddd;
         border-radius: 4px;
+        transition: border-color 0.2s;
     }
-    .ristopos-form button {
-        width: 100%;
-        padding: 10px;
+
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #2271b1;
+        box-shadow: 0 0 0 1px #2271b1;
+        outline: none;
     }
+
+    .file-upload-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: #f0f0f1;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .file-upload-input {
+        display: none;
+    }
+
+    .submit-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
     #product-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
+        padding: 20px 0;
     }
+    
     .product-item {
         background: #fff;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-    .product-item img {
-        width: 150px;
-        height: 150px:
-        margin-bottom: 10px;
-    }
-    .ristopos-modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.4);
-    }
-    .ristopos-modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
         padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 500px;
-        border-radius: 5px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        position: relative;
     }
-    .ristopos-modal-close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
+
+    .product-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .ristopos-modal-close:hover,
-    .ristopos-modal-close:focus {
-        color: #000;
-        text-decoration: none;
+
+    .product-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+
+    .product-item h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .product-item .price {
+        font-weight: 600;
+        color: #2271b1;
+        margin-bottom: 15px;
+    }
+
+    .product-item .actions {
+        margin-top: auto;
+        display: flex;
+        gap: 10px;
+    }
+
+    .div-button-product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-item .edit-btn,
+    .product-item .delete-btn {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: none;
         cursor: pointer;
-    }   
+        flex: 1;
+        transition: background-color 0.2s;
+    }
+
+    .product-item .edit-btn {
+        background: #2271b1;
+        color: white;
+    }
+
+    .product-item .delete-btn {
+        background: #dc3545;
+        color: white;
+    }
+
+    .product-item .edit-btn:hover {
+        background: #135e96;
+    }
+
+    .product-item .delete-btn:hover {
+        background: #bb2d3b;
+    }
+
     @media (max-width: 768px) {
-        .div-button-product {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        #title-page {
-            padding-top: 50px;
-        }
-         .ristopos-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001; 
-        }
         #product-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+        }
+        
+        .product-item {
+            padding: 15px;
+        }
+        
+        .product-item img {
+            height: 140px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .ristopos-product-management {
+            padding: 1rem;
+        }
+
+        .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
     }
     </style>

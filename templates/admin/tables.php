@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) {
-    exit; // Uscita se accesso diretto
+    exit; // Exit if accessed directly
 }
 
 function ristopos_display_tables() {
@@ -10,30 +10,30 @@ function ristopos_display_tables() {
     ksort($tables);
 
     echo '<div class="wrap">';
-    echo '<h1>Gestione Tavoli RistoPOS</h1>';
+    echo '<h1>' . esc_html__('Table Management - RistoPOS', 'ristopos') . '</h1>';
 
-    echo '<button type="button" id="add-table" class="button button-card">Aggiungi Nuovo Tavolo</button>';
+    echo '<button type="button" id="add-table" class="button button-card">' . esc_html__('Add New Table', 'ristopos') . '</button>';
 
     echo '<div class="ristopos-tables-grid">';
     foreach ($tables as $table_id => $table_info) {
         $status_class = $table_info['status'] == 'occupied' ? 'table-occupied' : 'table-free';
-        $status_text = $table_info['status'] == 'occupied' ? 'Occupato' : 'Libero';
+        $status_text = $table_info['status'] == 'occupied' ? esc_html__('Occupied', 'ristopos') : esc_html__('Free', 'ristopos');
         echo "<div class='ristopos-table-card $status_class'>";
 
         echo '<div class="div-header-card">';
-        echo "<h3>Tavolo $table_id</h3>";
-        echo '<button type="button" class="button button-card show-details" data-table-id="' . $table_id . '">Dettagli</button>';
-        echo "</div>";
-        
-        echo "<p>Stato: $status_text</p>";
-        echo "<p>Totale: €" . number_format($table_info['total'], 2) . "</p>";
-        
-        echo '<div class="div-button-card">';
-        echo '<button type="button" class="button button-card clear-table" data-table-id="' . $table_id . '">Svuota Tavolo</button>';
-        echo '<button type="button" class="button button-card delete-table" data-table-id="' . $table_id . '">Elimina Tavolo</button>';
-        echo "</div>";
+        echo '<h3>' . sprintf(esc_html__('Table %d', 'ristopos'), $table_id) . '</h3>';
+        echo '<button type="button" class="button button-card show-details" data-table-id="' . $table_id . '">' . esc_html__('Details', 'ristopos') . '</button>';
+        echo '</div>';
 
-        echo "</div>";
+        echo '<p>' . esc_html__('Status:', 'ristopos') . ' ' . $status_text . '</p>';
+        echo '<p>' . esc_html__('Total:', 'ristopos') . ' €' . number_format($table_info['total'], 2) . '</p>';
+
+        echo '<div class="div-button-card">';
+        echo '<button type="button" class="button button-card clear-table" data-table-id="' . $table_id . '">' . esc_html__('Clear Table', 'ristopos') . '</button>';
+        echo '<button type="button" class="button button-card delete-table" data-table-id="' . $table_id . '">' . esc_html__('Delete Table', 'ristopos') . '</button>';
+        echo '</div>';
+
+        echo '</div>';
     }
     echo '</div>';
 
@@ -81,7 +81,6 @@ function ristopos_tables_styles() {
         font-size: 20px;
         line-height: 1;
     }
-
 
     @media screen and (max-width: 600px) {
         .table-details-popup {
@@ -160,7 +159,7 @@ function ristopos_tables_styles() {
             justify-content: space-between;
             align-items: center;
         }
-    
+
         .ristopos-button {
             background-color: #0073aa;
             color: white;
@@ -208,20 +207,20 @@ function ristopos_tables_styles() {
 
 function ristopos_add_table_action() {
     $tables = get_option('ristopos_tables', array());
-    
-    // Troviamo il prossimo ID disponibile
+
+    // Find the next available ID
     $new_table_id = 1;
     while (isset($tables[$new_table_id])) {
         $new_table_id++;
     }
-    
+
     $tables[$new_table_id] = array(
         'status' => 'free',
         'total' => 0,
         'orders' => array()
     );
     update_option('ristopos_tables', $tables);
-    echo '<div class="updated"><p>Nuovo tavolo (ID: ' . $new_table_id . ') aggiunto con successo!</p></div>';
+    echo '<div class="updated"><p>' . sprintf(esc_html__('New table (ID: %d) added successfully!', 'ristopos'), $new_table_id) . '</p></div>';
 }
 
 function ristopos_delete_table_action($table_id) {
@@ -229,9 +228,9 @@ function ristopos_delete_table_action($table_id) {
     if (isset($tables[$table_id])) {
         unset($tables[$table_id]);
         update_option('ristopos_tables', $tables);
-        echo '<div class="updated"><p>Tavolo ' . $table_id . ' eliminato con successo!</p></div>';
+        echo '<div class="updated"><p>' . sprintf(esc_html__('Table %d deleted successfully!', 'ristopos'), $table_id) . '</p></div>';
     } else {
-        echo '<div class="error"><p>Tavolo ' . $table_id . ' non trovato.</p></div>';
+        echo '<div class="error"><p>' . sprintf(esc_html__('Table %d not found.', 'ristopos'), $table_id) . '</p></div>';
     }
 }
 
@@ -242,7 +241,7 @@ function ristopos_clear_table_action($table_id) {
         $tables[$table_id]['total'] = 0;
         $tables[$table_id]['orders'] = array();
         update_option('ristopos_tables', $tables);
-        echo '<div class="updated"><p>Tavolo ' . $table_id . ' svuotato con successo!</p></div>';
+        echo '<div class="updated"><p>' . sprintf(esc_html__('Table %d cleared successfully!', 'ristopos'), $table_id) . '</p></div>';
     }
 }
 
