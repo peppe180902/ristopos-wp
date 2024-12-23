@@ -24,18 +24,16 @@ __webpack_require__.r(__webpack_exports__);
 // import Header from './components/layout/Header';
 
 
-var App = function App() {
+const App = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.HashRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("hr", {
         className: "wp-header-end"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
-        children: _routes__WEBPACK_IMPORTED_MODULE_0__["default"].map(function (route, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-            path: route.path,
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(route.element, {})
-          }, index);
-        })
+        children: _routes__WEBPACK_IMPORTED_MODULE_0__["default"].map((route, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+          path: route.path,
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(route.element, {})
+        }, index))
       })]
     })
   });
@@ -11857,8 +11855,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // Render the App component into the DOM
 
-var container = document.getElementById('ristopos');
-var root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(container);
+const container = document.getElementById('ristopos');
+const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(container);
 root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
 }();
 /******/ })()

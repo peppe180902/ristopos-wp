@@ -82,9 +82,10 @@ function ristopos_display_main_stats() {
     $total_orders = ristopos_get_total_orders();
     $average_order_value = ristopos_get_average_order_value();
 
+
     echo '<div class="ristopos-stats-grid">';
     echo '<div class="ristopos-stat-card">';
-    echo '<h3>Vendite Totali</h3>';
+    echo '<h3>Vendite Totali ---</h3>';
     echo '<p class="ristopos-big-number">' . wc_price($total_sales) . '</p>';
     echo '</div>';
     echo '<div class="ristopos-stat-card">';
@@ -223,7 +224,7 @@ function ristopos_render_line_chart($data) {
         'labels' => array(),
         'datasets' => array(
             array(
-                'label' => 'Vendite Totali',
+                'label' => 'Vendite Totali--',
                 'data' => array(),
                 'fill' => false,
                 'borderColor' => 'rgb(75, 192, 192)',
